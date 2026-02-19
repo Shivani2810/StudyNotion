@@ -5,14 +5,22 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Signup from "./pages/Signup";
 import {Routes,Route} from "react-router-dom";
+import { useState } from "react";
 
 function App() {
+
+
+  const[isLoggedIn,setLoggedIn]=useState(false);
+
+
+
+
   return (
   
   <div>
        
        <div>
-        <Navbar/>
+        <Navbar isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn}/>
        </div>
 
        <div>
