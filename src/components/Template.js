@@ -1,8 +1,7 @@
 import React from 'react'
 import frame from "../assets/frame.png"
 import LoginForm from './LoginForm'
-import SignupForm from '../pages/Signup'
-
+import SignupForm from './SignupForm'
 
 const Template = ({title,desc1,desc2,image,setIsLoggedIn,formtype}) => {
   return (

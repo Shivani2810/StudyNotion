@@ -22,7 +22,7 @@ const SignupForm = ({ setIsLoggedIn }) => {
   function submitHandler(e) {
     e.preventDefault();
     // demo only
-    // setIsLoggedIn(true);
+    setIsLoggedIn(true);
   }
 
   return (
