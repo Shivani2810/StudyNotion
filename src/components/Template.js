@@ -1,5 +1,5 @@
 import React from 'react'
-
+import frame from "../assets/frame.png"
 const Template = ({title,desc1,desc2,image,setIsLoggedIn,formtype}) => {
   return (
     <div>
@@ -30,6 +30,24 @@ const Template = ({title,desc1,desc2,image,setIsLoggedIn,formtype}) => {
             Sign up with Google 
          </button>
 
+
+        </div>
+
+
+        {/* div for Image */}
+        <div>
+
+            <img src={frame}
+            width={558}
+            height={504}
+            loading="lazy" 
+            ></img>
+
+             <img src={image}
+            width={558}
+            height={504}
+            loading="lazy" 
+            ></img>
 
         </div>
     </div>
