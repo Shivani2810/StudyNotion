@@ -1,5 +1,9 @@
 import React from 'react'
 import frame from "../assets/frame.png"
+import LoginForm from './LoginForm'
+import SignupForm from '../pages/Signup'
+
+
 const Template = ({title,desc1,desc2,image,setIsLoggedIn,formtype}) => {
   return (
     <div>
@@ -10,10 +14,13 @@ const Template = ({title,desc1,desc2,image,setIsLoggedIn,formtype}) => {
                 <span>{desc2}</span>
             </p>
 
-            {
-                formtype==="signup" ? (<SignupForm/>):(<LoginForm/>)
-            }
-      
+            <div className="mt-8">
+          {formtype === "login" ? (
+            <LoginForm setIsLoggedIn={setIsLoggedIn} />
+          ) : (
+            <SignupForm setIsLoggedIn={setIsLoggedIn} />
+          )}
+        </div>
 
 
         <div>

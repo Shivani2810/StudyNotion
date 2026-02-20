@@ -1,75 +1,49 @@
 import React from "react";
 import Logo from "../assets/Logo.svg";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import {toast} from 'react-hot-toast'
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const Navbar = (props) => {
+  const { isLoggedIn,setIsLoggedIn } = props;
+  const navigate = useNavigate();
 
-    let isLoggedIn= props.isLoggedIn;
-    let setLoggedIn=props.setLoggedIn
+  function logoutHandler() {
+    setIsLoggedIn(false);
+    toast.success("Logged out");
+    navigate("/"); // ✅ force redirect to home
+  }
+
   return (
-    <div className="flex justify-evenly"> 
-
+    <div className="flex justify-evenly">
       <Link to="/">
-        <img src={Logo} alt="Logo" width={162} height={32} loadind ="lazy"/>
+        <img src={Logo} alt="Logo" width={162} height={32} loading="lazy" />
       </Link>
 
-     <div > 
       <nav>
-        <div className="bg-red-200 mx-auto ">
-        <ul className="flex  bg-gray-200 gap-10" >
-            <li>
-                <Link to='/'>Home</Link>
-            </li>
-            <li>
-                <Link to='/'>About</Link>
-            </li>
-            <li>
-                <Link to='/'>Contact</Link>
-            </li>
+        <ul className="flex gap-10">
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
         </ul>
-        </div>
       </nav>
+
+      <div className="flex gap-5">
+        {!isLoggedIn && (
+          <Link to="/login"><button>Login</button></Link>
+        )}
+
+        {!isLoggedIn && (
+          <Link to="/signup"><button>Sign Up</button></Link>
+        )}
+
+        {isLoggedIn && (
+          <Link to="/dashboard"><button>Dashboard</button></Link>
+        )}
+
+        {isLoggedIn && (
+          <button onClick={logoutHandler}>Sign Out</button>  
+        )}
       </div>
-
-      <div className="flex gap-5 ml-10 bg-red-200"> 
-        { !isLoggedIn && 
-            <Link to ="/login">
-                <button>Login</button>
-            </Link>
-        }
-        {!isLoggedIn &&
-            <Link to ="/signup">
-
-                <button
-                >Sign Up</button>
-            </Link>
-        }
-        { isLoggedIn &&
-            <Link to ="/dashboard">
-                <button>Dashboard</button>
-            </Link>
-        }
-        { isLoggedIn &&
-            <Link to ="/">
-                <button
-                onClick={()=>
-                {
-                    setLoggedIn(false);
-                    toast.success("Logged out");
-                }
-                }
-                >
-                    Sign Out</button>
-            </Link>
-        }
-      </div>
-
-
-
-
-
     </div>
   );
 };
