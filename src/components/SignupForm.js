@@ -2,7 +2,6 @@ import React from 'react'
 import { useState } from 'react'
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 
-
 const SignupForm = () => {
 
 const [formData,setFormData]=useState( {
@@ -110,9 +109,11 @@ function changeHandler(event) {
                             {showPassword ? <IoIosEyeOff /> : <IoIosEye />}
                             </span>
                 </label>
-</div>
+        </div>
                 
-                
+                <button>
+                    Create Account
+                </button>
                 
   
 

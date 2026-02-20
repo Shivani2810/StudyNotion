@@ -1,8 +1,11 @@
 import React from 'react'
+import Template from "../components/Template"
 
 const Login = () => {
   return (
-    <div>Login</div>
+    <div>
+      <Template></Template>
+    </div>
   )
 }
 export default Login;
